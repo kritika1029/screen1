@@ -1,0 +1,15 @@
+<form class="form-inline" #f="ngForm" [formGroup]="formenroll">
+    <div class="form-group">
+    <label for="enrollment">Enrollment No.:</label>
+    
+    <input 
+       name="enrollment" 
+       type="text" class="form-control mar" 
+       formControlName="enrollment">
+    <div class="alert alert-danger" *ngIf="enrollment.touched && !enrollment.valid">
+        <div *ngIf="enrollment.errors.required">Enrollment Number is required</div>
+        <div *ngIf="enrollment.errors.onlyNumber">Enter Only Digits</div>
+        </div>
+    <button class="btn btn-primary right" routerLink="/form" (click)="clicked = true;" [disabled]="(!f.valid || clicked)">Submit</button>
+</div>
+</form>

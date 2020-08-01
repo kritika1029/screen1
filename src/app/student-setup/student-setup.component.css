@@ -1,0 +1,15 @@
+.right
+{
+    float: inline-end;
+}
+.mar
+{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.photo
+{
+    width:200px;
+    height:300px;
+   
+}

@@ -1,0 +1,19 @@
+
+    <form novalidate #form1="ngForm" name="form1" [formGroup]="studentSetupForm" ngSubmit="submit(form1)">
+
+        <setup2 [formsetup]="studentSetupForm"></setup2>
+        <personal-details [formpersonal]="studentSetupForm"></personal-details>
+        <br>
+        <contact [form]="studentSetupForm"></contact>
+        <br>
+        <div class="text-center">
+            <button class="btn btn-primary m-10" [disabled]="!form1.form.valid" type="submit">Update</button>
+            &nbsp;
+            <button class="btn btn-primary m-10">Cancel</button>
+
+         </div>
+         <div>
+             {{form1.value|json}}
+         </div>
+        </form> 
+   

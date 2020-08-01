@@ -1,0 +1,113 @@
+<div class="border border-dark rounded">
+<form class="card" [formGroup]="formpersonal"> 
+<div class="form-group">
+    <div class="card-header"><b>Personal Details</b></div>
+<div class="card-body">
+
+<div>
+    <div class="d-inline-block mr-10">
+    <label for="">Student Name*</label>
+    <input type="text" class="form-control" formControlName="studentName">
+    <div *ngIf="formpersonal.get('studentName').touched && formpersonal.get('studentName').invalid" class="alert alert-danger">
+        Student Name is required
+    </div>
+    <label for="">Father's Name*</label>
+    <input type="text" class="form-control" formControlName="fatherName">
+    <div *ngIf="formpersonal.get('fatherName').touched && formpersonal.get('fatherName').invalid" class="alert alert-danger">
+        Father's Name is required
+    </div>
+    <label for="">Mother's Name*</label>
+    <input type="text" class="form-control" formControlName="motherName">
+    <div *ngIf="formpersonal.get('motherName').touched && formpersonal.get('motherName').invalid" class="alert alert-danger">
+        Mother's Name is required
+    </div>
+    <label for="">Guardian's Name</label>
+    <input type="text" class="form-control">
+    
+    <label for="">Nationality:*</label>
+    <select name="nation" class="form-control" formControlName="nation">
+        <option value="">Select</option>
+        <option *ngFor="let nation of nationality" [value]="nation.code" >
+            {{nation.name}}
+        </option>
+    </select>
+          <div *ngIf="formpersonal.get('nation').touched && formpersonal.get('nation').invalid" class="alert alert-danger">
+        Nationality is required
+         </div>
+    <label for="dob">Date Of Birth*</label>
+    <input type="date" name="dob" min="1970-02-01" class="form-control" formControlName="dob">
+    <div *ngIf="formpersonal.get('dob').touched && formpersonal.get('dob').invalid" class="alert alert-danger">
+        Date of Birth is required
+    </div>
+    <label for="">Primary Email Id*</label>
+    <input type="email" name="email1" class="form-control" formControlName="email1">
+    <div *ngIf="formpersonal.get('email1').touched && formpersonal.get('email1').invalid" class="alert alert-danger">
+        Emailid is required
+    </div>
+    <label for="handicapped">Physically Handicapped:</label>
+    <select name="handicapped" id="" class="form-control">
+        <option value="">Select</option>
+        <option value="1">YES</option>
+        <option value="2">NO</option>
+    </select>
+</div>
+    
+    
+    <div class="d-inline-block float-right mr-20 w-50">
+        <br>
+        <br><br><br><br><br><br><br><br>
+
+        <label for="category">Category:*</label>
+        <select name="category" id="" class="form-control" formControlName="category">
+            <option value="">Select</option>
+            <option value="1">General</option>
+            <option value="2">OBC</option>
+            <option value="3">SC</option>
+            <option value="4">ST</option>
+        </select>
+        <div *ngIf="formpersonal.get('category').touched && formpersonal.get('category').invalid" class="alert alert-danger">
+            category is required
+        </div>
+        <label for="religion">Religion:*</label>
+        <select name="religion" id="" class="form-control" formControlName="religion">
+            <option value="">Select</option>
+            <option value="1">Hindu</option>
+            <option value="2">Muslim</option>
+            <option value="3">Christian</option>
+            <option value="4">Sikh</option>
+        </select>
+        <div *ngIf="formpersonal.get('religion').touched && formpersonal.get('religion').invalid" class="alert alert-danger">
+            Religion is required
+        </div>
+        <label for="gender">Gender:*</label>
+        <select name="gender" id="" class="form-control" formControlName="gender">
+            <option value="">Select</option>
+            <option value="m">Male</option>
+            <option value="f">Female</option>
+            <option value="o">Other</option>
+        </select>
+        <div *ngIf="formpersonal.get('gender').touched && formpersonal.get('gender').invalid" class="alert alert-danger">
+            Gender is required
+        </div>
+        <label for="">Secondary Email</label>
+        <input type="email" class="form-control">
+        <label for="minority">Minority</label>
+        <select name="minority" id="" class="form-control">
+            <option value="">Select</option>
+            <option value="y">YES</option>
+            <option value="n">NO</option>
+        </select>
+    </div>
+    
+</div>
+<label for="">Aadhar no.*</label>
+    <input type="text" class="form-control" formControlName="aadhar">
+    <div *ngIf="formpersonal.get('aadhar').touched && formpersonal.get('aadhar').invalid" class="alert alert-danger">
+        <div *ngIf="formpersonal.get('aadhar').errors.required">Aadhar number is required</div>
+        <div *ngIf="formpersonal.get('aadhar').errors.minlength || formpersonal.get('aadhar').errors.maxlength">Invalid Aadhar no.</div>
+    </div>
+
+</div>
+</div>
+</form>
+</div>

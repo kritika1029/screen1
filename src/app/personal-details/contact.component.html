@@ -1,0 +1,126 @@
+
+<div class="border border-dark rounded" ng-app="formExample">
+   <div class="card">
+    <div ng-controller="ExampleController">
+        <form action=""  [formGroup]="form">
+            <div> 
+            <div class="card-header"><b>Contact Details</b></div> 
+            <div class="form-group">
+                
+                <div class="card-body">
+                    <label for="address"><b>Permanent Address*</b></label>
+                    <br>
+                    <div class="row form-group" formGroupName="permanentadd">
+                        <div class="col">
+                        <label>Address</label>
+                        <input type="textarea" 
+                               class="form-control" 
+                               formControlName="address"
+                               ng-model="sa.street"
+                               ng-change="sameAddress && update()">
+                        <div *ngIf="form.get('permanentadd.address').touched && form.get('permanentadd.address').invalid" class="alert alert-danger">
+                            Address is required
+                         </div>
+                    </div>
+                    <div class="col">
+                        <label for="state">State</label>
+                        <select name="state" id="" 
+                                class="form-control" 
+                                formControlName="state"
+                                ng-model="sa.state"
+                                ng-change="sameAddress && update()">
+                            <option value="">Select</option>
+                            <option *ngFor="let state of states" [value]="state.code">
+                                {{state.name}}
+                            </option>
+                        </select>
+                        <div *ngIf="form.get('permanentadd.state').touched && form.get('permanentadd.state').invalid" class="alert alert-danger">
+                            Mention State
+                         </div>
+                    </div>
+                    <div class="col">
+                        <label for="city">City</label>
+                        <input type="text" 
+                               class="form-control" 
+                               formControlName="city"
+                               ng-model="sa.city"
+                               ng-change="sameAddress && update()">
+                        <div *ngIf="form.get('permanentadd.city').touched && form.get('permanentadd.city').invalid" class="alert alert-danger">
+                            Mention City
+                         </div>
+                    </div>
+                    <div class="col">
+                        <label for="pincode">Pincode</label>
+                        <input type="text" 
+                               class="form-control" 
+                               formControlName="pincode"
+                               ng-model="sa.pin" ng-change="sameAddress && update()">
+                        <div *ngIf="form.get('permanentadd.pincode').touched && form.get('permanentadd.pincode').invalid" class="alert alert-danger">
+                            Pincode is required
+                         </div>
+                    </div>
+                    </div>
+                    
+                <input type="checkbox" 
+                       ng-model="sameAddress" 
+                       ng-click="update()">Same as above
+            <br>
+                        
+                    <label for="address"><b>Correspondance Address</b></label>
+                    <br>
+                    <div class="row form-group">
+                    <div class="col">
+                    <label>Address</label>
+                    <input type="textarea"
+                           class="form-control"
+                           ng-model="ba.street" ng-disabled="sameAddress">
+                </div>
+                <div class="col">
+                    <label for="state">State</label>
+                    <select name="state2" 
+                            class="form-control"
+                            ng-model="ba.state" ng-disabled="sameAddress">
+                        <option value="">Select</option>
+                        <option *ngFor="let state of states" [value]="state.code">
+                            {{state.name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="city">City</label>
+                    <input type="text" 
+                           class="form-control"
+                           ng-model="ba.city" ng-disabled="sameAddress">
+                </div>
+                <div class="col">
+                    <label for="pincode">Pincode</label>
+                    <input type="text" 
+                           class="form-control"
+                           ng-model="ba.pin" ng-disabled="sameAddress">
+                </div>
+                </div>
+                
+                <br>
+                <div class="form-row">
+        
+                    <label for="office" class="col col-form-label">Office Phone:</label>
+                    <input type="text" name="office" class="col form-control">
+        
+                    <label for="home" class="col col-form-label">Home Phone:</label>
+                    <input type="text" name="home" class="col form-control">
+        
+                    <label for="other" class="col col-form-label">Other Phone:</label>
+                    <input type="text" name="other" class="col form-control">
+        
+                    <label for="fax" class="col col-form-label">Fax:</label>
+                    <input type="text" name="fax" class="col form-control">
+                </div>
+            </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div> 
+  
+</div>
+

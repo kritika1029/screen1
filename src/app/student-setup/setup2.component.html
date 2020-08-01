@@ -1,0 +1,56 @@
+<form action="" #g="ngForm" [formGroup]="formsetup">
+    <div class="form-group">
+        <div class="row">
+        <div class="w-75 d-inline-block col">
+            <br>
+            <div class="row">
+                <div class="col-1 col-form-label">
+        <label for="status" class="">Status*: </label>
+                </div>
+                <div class="col">
+        <select name="status" id="" class="form-control" formControlName="status">
+            <option value="">Select</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+        </select>
+        <div *ngIf="formsetup.get('status').touched && formsetup.get('status').invalid" class="alert alert-danger">
+           Status is required
+        </div>
+        </div>
+    
+    <div class="col-1 col-form-label">
+        <label for="session">Session:*</label>
+    </div>
+    <div class="col">
+            <select name="session" id="" class="form-control" formControlName="sessionyear">
+                <option value="">Select</option>
+                <option *ngFor="let s of session" [ngValue]="s">
+                    {{s}}
+                </option>
+            </select>
+            <div *ngIf="formsetup.get('sessionyear').touched && formsetup.get('sessionyear').invalid" class="alert alert-danger">
+                Session is required
+            </div>
+            </div>
+            </div>
+                <label for="parententity">Parent Entity*</label>
+                <select name="parententity" id="" class="form-control" formControlName="parententity">
+                    <option value="">Select</option>
+                    <option value="1">DEI REI INTERN</option>
+                </select>
+                <div *ngIf="formsetup.get('parententity').touched && formsetup.get('parententity').invalid" class="alert alert-danger">
+                    Parent Entity is required
+                </div>
+             <label>Student Name(IN HINDI)</label>
+            <input type="text" class="form-control">
+            <label>Mother's Name(IN HINDI)</label>
+            <input type="text" class="form-control">
+            <label>Father's Name(IN HINDI)</label>
+            <input type="text" class="form-control">
+       </div>
+       <div class="photo d-inline-block border border-dark col-2.8">
+           <img src="" alt="passportPhoto">
+       </div>
+    </div>
+</div>
+</form>
